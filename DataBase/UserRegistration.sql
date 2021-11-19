@@ -62,7 +62,6 @@ BEGIN
 	END
 END
 
-
 -- Create Stored procedure with Email input and UserId output
 CREATE PROCEDURE spUserForgot
 	@email VARCHAR(255),

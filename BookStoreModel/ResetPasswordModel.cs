@@ -7,6 +7,7 @@ namespace BookStoreModel
 {
     public class ResetPasswordModel
     {
+
         public int _id { get; set; }
         
         public string password { get; set; }

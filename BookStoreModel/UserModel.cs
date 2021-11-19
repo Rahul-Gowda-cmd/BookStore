@@ -7,7 +7,6 @@ namespace BookStoreModel
 {
     public class UserModel
     {
- 
         public int _id { get; set; }     
         public string fullName { get; set; }    
         public string email { get; set; }

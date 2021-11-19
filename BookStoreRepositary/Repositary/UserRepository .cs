@@ -171,6 +171,7 @@ namespace BookStoreRepositary.Repositary
             JwtSecurityToken token = handler.CreateJwtSecurityToken(descriptor);
             return handler.WriteToken(token);
         }
+
         public string ForgotPassword(string email)
         {
             throw new NotImplementedException();

@@ -8,7 +8,6 @@ namespace BookStoreRepositary.EmailService
 {
     public class EmailService
     {
-
         private readonly IConfiguration configuration;
 
         public EmailService(IConfiguration configuration)

@@ -9,7 +9,6 @@ namespace BookStoreManager.Manager
 {
     public class UserManager : IUserManager
     {
-
         private readonly IUserRepository repository;
 
         // Constructor

@@ -50,7 +50,6 @@ namespace BookStore
                         builder.AllowAnyHeader().AllowAnyMethod().AllowAnyOrigin();
     });
             });
-
      services.AddControllers();
      services.AddSwaggerGen(c =>
    {
