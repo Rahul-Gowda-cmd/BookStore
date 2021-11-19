@@ -7,6 +7,7 @@ namespace BookStoreManager.Interface
 {
     public interface IUserManager
     {
+
         UserModel Register(UserModel user);
         string Login(LoginModel user);
         string GenerateToken(string userName);

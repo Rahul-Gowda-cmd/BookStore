@@ -1,3 +1,4 @@
+
 -- Create database
 CREATE DATABASE [Bookstore]
 
@@ -16,6 +17,7 @@ ALTER TABLE Users ADD CONSTRAINT uc_Users_email UNIQUE (email)
 -- Display table
 SELECT * FROM [Users]
 
+
 -- Create Stored procedure with UserModel input and UserId output
 CREATE PROCEDURE spUserRegisteration
 	@fullName VARCHAR(255),
@@ -33,6 +35,7 @@ BEGIN
 		VALUES (@fullName, @email, @password, @phone)
 		SET @user = SCOPE_IDENTITY();
 END
+
 
 -- Create Stored procedure with LoginModel input and User Code output
 CREATE PROCEDURE spUserLogin
@@ -59,6 +62,7 @@ BEGIN
 	END
 END
 
+
 -- Create Stored procedure with Email input and UserId output
 CREATE PROCEDURE spUserForgot
 	@email VARCHAR(255),
@@ -75,6 +79,7 @@ BEGIN
 		SET @user = NULL;
 	END
 END
+
 
 -- Create Stored procedure with ResetModel input
 CREATE PROCEDURE spUserReset

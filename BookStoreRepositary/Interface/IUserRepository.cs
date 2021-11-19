@@ -7,6 +7,7 @@ namespace BookStoreRepositary.Interface
 {
     public interface IUserRepository
     {
+
         UserModel Register(UserModel user);
         string Login(LoginModel user);
         string GenerateToken(string userName);

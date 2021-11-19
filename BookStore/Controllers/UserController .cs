@@ -12,6 +12,7 @@ namespace BookStore.Controllers
     [ApiController]
     public class UserController : ControllerBase
     {
+
         private readonly IUserManager manager;
 
         // Constructor Dependency Injection

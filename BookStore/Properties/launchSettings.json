@@ -16,6 +16,7 @@
         "ASPNETCORE_ENVIRONMENT": "Development"
       }
     },
+
     "BookStore": {
       "commandName": "Project",
       "launchBrowser": true,
