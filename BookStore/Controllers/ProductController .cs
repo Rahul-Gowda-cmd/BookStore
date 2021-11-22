@@ -19,7 +19,7 @@ namespace BookStore.Controllers
         }
 
         [HttpGet]
-        [Route("get-books")]
+        [Route("api/get-books")]
         public IActionResult GetAllBooks()
         {
             List<BookModel> books = this.manager.GetAllBooks();

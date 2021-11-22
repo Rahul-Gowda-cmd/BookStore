@@ -21,7 +21,7 @@ namespace BookStore.Controllers
         }
 
         [HttpPost]
-        [Route("add-book")]
+        [Route("api/add-book")]
         public IActionResult AddBook([FromBody] BookModel book)
         {
             try
@@ -42,7 +42,7 @@ namespace BookStore.Controllers
         }
 
         [HttpPut]
-        [Route("update-book")]
+        [Route("api/update-book")]
         public IActionResult UpdateBook([FromBody] BookModel book)
         {
             try
@@ -62,7 +62,7 @@ namespace BookStore.Controllers
         }
 
         [HttpDelete]
-        [Route("delete-book")]
+        [Route("api/delete-book")]
         public IActionResult DeleteBook(int bookId)
         {
             try

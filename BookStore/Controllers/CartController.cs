@@ -19,7 +19,7 @@ namespace BookStore.Controllers
         }
 
         [HttpPost]
-        [Route("cart-add-book")]
+        [Route("api/cart-add-book")]
         public IActionResult AddBookToCart(int bookId, int userId)
         {
             try
@@ -44,7 +44,7 @@ namespace BookStore.Controllers
         }
 
         [HttpPut]
-        [Route("cart-update-book")]
+        [Route("api/cart-update-book")]
         public IActionResult UpdateCartItem(int cartId, int quantityToBuy)
         {
             try
@@ -64,7 +64,7 @@ namespace BookStore.Controllers
         }
 
         [HttpGet]
-        [Route("cart-get-books")]
+        [Route("api/cart-get-books")]
         public IActionResult GetCartItems(int userId)
         {
             List<CartModel> cart = this.manager.GetCartItems(userId);
@@ -84,7 +84,7 @@ namespace BookStore.Controllers
         }
 
         [HttpDelete]
-        [Route("cart-delete-book")]
+        [Route("api/cart-delete-book")]
         public IActionResult DeleteBookFromCart(int cartId)
         {
             try
