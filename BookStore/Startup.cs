@@ -44,6 +44,12 @@ namespace BookStore
             services.AddTransient<IBookRepository, BookRepository>();
             services.AddTransient<IBookManager, BookManager>();
 
+            services.AddTransient<IProductRepository, ProductRepository>();
+            services.AddTransient<IProductManager, ProductManager>();
+
+            services.AddTransient<ICartRepository, CartRepository>();
+            services.AddTransient<ICartManager, CartManager>();
+
 
             services.AddCors(options =>
             {
