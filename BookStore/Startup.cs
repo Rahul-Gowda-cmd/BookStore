@@ -40,9 +40,12 @@ namespace BookStore
             // Registering Application Service using Extension Methods
             services.AddTransient<IUserRepository, UserRepository>();
             services.AddTransient<IUserManager, UserManager>();
-        
 
-        services.AddCors(options =>
+            services.AddTransient<IBookRepository, BookRepository>();
+            services.AddTransient<IBookManager, BookManager>();
+
+
+            services.AddCors(options =>
             {
                 options.AddPolicy(name: "AllowAllHeader",
                     builder =>

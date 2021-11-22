@@ -243,7 +243,7 @@ namespace BookStoreRepositary.Repositary
                 SmtpClient smtpServer = new SmtpClient("smtp.gmail.com");
                 smtpServer.Port = 587;
                 smtpServer.UseDefaultCredentials = false;
-                smtpServer.Credentials = new System.Net.NetworkCredential("rahul.prabu.07@gmail.com", "Rahul@1995");
+                smtpServer.Credentials = new System.Net.NetworkCredential("rahul.prabu.07@gmail.com", "Password");
                 smtpServer.EnableSsl = true;
 
                 smtpServer.Send(mailMesage);
