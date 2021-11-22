@@ -75,5 +75,46 @@ namespace BookStore.Controllers
                 return this.BadRequest(new { success = false, message = ex.Message });
             }
         }
+
+        [HttpPost]
+        [Route("api/forgot-password")]
+        public IActionResult ForgotPassword(string email)
+        {
+            try
+            {
+                string resultMessage = this.manager.ForgotPassword(email);
+
+                if (resultMessage.Equals("Email has been sent"))
+                {
+                    return this.Ok(new { success = true, message = resultMessage });
+                }
+                return this.Ok(new { success = false, message = resultMessage });
+            }
+            catch (Exception ex)
+            {
+                return this.BadRequest(new { success = false, message = ex.Message });
+            }
+        }
+
+        [HttpPost]
+        [Route("api/reset-password")]
+        public IActionResult ResetPassword(ResetPasswordModel user)
+        {
+            try
+            {
+                string resultMessage = this.manager.ResetPassword(user);
+
+                if (resultMessage.Equals("Reset Password Successful"))
+                {
+                    return this.Ok(new { success = true, message = resultMessage });
+                }
+
+                return this.Ok(new { success = false, message = resultMessage });
+            }
+            catch (Exception ex)
+            {
+                return this.BadRequest(new { success = false, message = ex.Message });
+            }
+        }
     }
 }
