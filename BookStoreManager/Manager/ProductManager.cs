@@ -1,5 +1,6 @@
 ﻿using BookStoreManager.Interface;
 using BookStoreModel;
+using BookStoreRepositary.Interface;
 using System;
 using System.Collections.Generic;
 using System.Text;

@@ -5,8 +5,7 @@ CREATE TABLE Cart
 	product_id INT NOT NULL,
 	user_id INT NOT NULL,
 	quantityToBuy INT NOT NULL,
-	createdAt DATETIME, 
-	updatedAt DATETIME
+
 );
 
 -- Add Foreign key constraint
