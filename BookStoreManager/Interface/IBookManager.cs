@@ -10,5 +10,7 @@ namespace BookStoreManager.Interface
         BookModel AddBook(BookModel book);
         BookModel UpdateBook(BookModel book);
         bool DeleteBook(int bookId);
+        bool AddCustomerFeedBack(FeedbackModel feedbackModel);
+        List<FeedbackModel> GetCustomerFeedBack(int bookid);
     }
 }

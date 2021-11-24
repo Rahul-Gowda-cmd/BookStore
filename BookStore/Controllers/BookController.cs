@@ -81,5 +81,56 @@ namespace BookStore.Controllers
                 return this.BadRequest(new { success = false, message = ex.Message });
             }
         }
+
+        [HttpPost]
+        [Route("api/AddCustomerFeedBack")]
+        public IActionResult AddCustomerFeedBack([FromBody] FeedbackModel feedbackModel)
+        {
+            try
+            {
+                var result = this.manager.AddCustomerFeedBack(feedbackModel);
+                if (result)
+                {
+
+                    return this.Ok(new  { Status = true, Message = "Added FeedBack Successfully !" });
+                }
+                else
+                {
+
+                    return this.BadRequest(new { Status = false, Message = "Failed to add feedback, Try again" });
+                }
+            }
+            catch (Exception ex)
+            {
+
+                return this.NotFound(new { Status = false, Message = ex.Message });
+
+            }
+        }
+
+        [HttpPost]
+        [Route("GetFeedback")]
+        public IActionResult GetFeedback(int bookid)
+        {
+            try
+            {
+                var result = this.manager.GetCustomerFeedBack(bookid);
+                if (result.Count > 0)
+                {
+                    return this.Ok(new { Status = true, Message = "Feedbackertrived", Data = result });
+                }
+                else
+                {
+
+                    return this.BadRequest(new  { Status = false, Message = "Failed to add to wish list, Try again" });
+                }
+            }
+            catch (Exception ex)
+            {
+
+                return this.NotFound(new  { Status = false, Message = ex.Message });
+
+            }
+        }
     }
 }

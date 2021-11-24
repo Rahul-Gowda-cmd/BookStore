@@ -137,5 +137,76 @@ namespace BookStoreRepositary.Repositary
                 connection.Close();
             }
         }
+
+        public bool AddCustomerFeedBack(FeedbackModel feedbackModel)
+        {
+            SqlConnection connection = new SqlConnection(connectionString);
+            using (connection)
+                try
+                {
+
+                    SqlCommand sqlCommand = new SqlCommand("storeprocedureAddFeedback", connection);
+                    sqlCommand.CommandType =CommandType.StoredProcedure;
+                    connection.Open();
+                    sqlCommand.Parameters.AddWithValue("@BookId", feedbackModel.bookId);
+                    sqlCommand.Parameters.AddWithValue("@UserId", feedbackModel.userId);
+                    sqlCommand.Parameters.AddWithValue("@Rating", feedbackModel.rating);
+                    sqlCommand.Parameters.AddWithValue("@FeedBack", feedbackModel.feedback);
+
+
+                    int result = sqlCommand.ExecuteNonQuery();
+
+                    if (result > 0)
+                        return true;
+                    else
+                        return false;
+
+                }
+                catch (Exception e)
+                {
+                    throw new Exception(e.Message);
+                }
+                finally
+                {
+                    connection.Close();
+                }
+        }
+        public List<FeedbackModel> GetCustomerFeedBack(int bookid)
+        {
+            SqlConnection connection = new SqlConnection(connectionString);
+            try
+            {
+                connection.Open();
+                SqlCommand cmd = new SqlCommand("StoreProcedurGetCustomerFeedback", connection)
+                {
+                    CommandType = CommandType.StoredProcedure
+                };
+                cmd.Parameters.AddWithValue("@bookid", bookid);
+                List<FeedbackModel> feedbackList = new List<FeedbackModel>();
+                SqlDataReader reader = cmd.ExecuteReader();
+                if (reader.HasRows)
+                {
+                    while (reader.Read())
+                    {
+                        FeedbackModel feedbackdetails = new FeedbackModel();
+                        feedbackdetails.userId = reader.GetInt32(0);
+                        feedbackdetails.customerName = reader.GetString("FullName");
+                        feedbackdetails.feedback = reader.GetString("Feedback");
+                        feedbackdetails.rating = reader.GetDouble("Rating");
+                        feedbackList.Add(feedbackdetails);
+                    }
+
+                }
+                return feedbackList;
+            }
+            catch (Exception e)
+            {
+                throw new Exception(e.Message);
+            }
+            finally
+            {
+                connection.Close();
+            }
+        }
     }
 }

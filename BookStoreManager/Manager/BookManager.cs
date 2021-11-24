@@ -52,5 +52,31 @@ namespace BookStoreManager.Manager
                 throw new Exception(ex.Message);
             }
         }
+
+        public bool AddCustomerFeedBack(FeedbackModel feedbackModel)
+        {
+            try
+            {
+                return this.repository.AddCustomerFeedBack(feedbackModel);
+
+
+            }
+            catch (Exception e)
+            {
+                throw new Exception(e.Message);
+            }
+        }
+        public List<FeedbackModel> GetCustomerFeedBack(int bookid)
+        {
+
+            try
+            {
+                return this.repository.GetCustomerFeedBack(bookid);
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+        }
     }
 }
